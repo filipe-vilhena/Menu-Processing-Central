@@ -13,12 +13,8 @@ st.set_page_config(page_title="Conversor Inteligente de Ficheiros", page_icon="�
 st.title("📊 Conversor de Ficheiros para Template Excel")
 st.subheader("Ferramenta de Automação para a Equipa de Agentes")
 
-# Espaço seguro para o Agente colocar a Chave de API (ou podes fixar no código)
-openai_api_key = st.sidebar.text_input("Insira a Chave de API da OpenAI (sk-...)", type="password")
-
-if not openai_api_key:
-    st.info("Por favor, introduza a sua chave de API da OpenAI na barra lateral para começar.", icon="🔑")
-    st.stop()
+# CONFIGURAÇÃO SEGURA: Vai buscar a chave de API diretamente aos Secrets do Streamlit Cloud
+openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 # Inicializa o cliente da OpenAI
 client = OpenAI(api_key=openai_api_key)
