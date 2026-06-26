@@ -4,3 +4,5 @@ pandas
 openpyxl
 pypdf
 pillow
+beautifulsoup4
+curl_cffi
